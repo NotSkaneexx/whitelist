@@ -1,35 +1,32 @@
-        "Ousitesar", -- Замените на имя разрешенного игрока
-        "Osxosj", -- Добавьте сколько угодно имен
-        "SwwertyFlaym1k",
+local whitelist = {
+    "Ousitesar", -- Замените на имя разрешенного игрока
 	"hagege24",
+	"ABUBIK1000",
 	"doch_mayski",
+	"Egor_Pon222",
 	"cr1staldaynfluxus090",
-	"9straI",
-	"rbnz310811",
-	"Misoko777",
-	"NeverAmoral",
 	"dudaevversion000",
-	"SoKo1_FlaymIk",
-	"qoxxcs",
-	"ya_istorik",
-	"SwwertyXmmIp",
 	"S1QERX",
-	"Stenchilk",
-	"sstydkkq",
+	"ponyal52",
+	"corbacdeparis",
+	"1ubivala",
 	"Ersi_girl",
+	"Stenchilk",
 	"Youtube_kol0",
 	"Kdkdkdkskzkzkzsk",
 	"c0a3k8o2l5v3j",
+	"Zzetalor",
 	"b3x3d7s5h6h1z7",
 	"Shigalevshina",
 	"SGkillaniz",
-	"SwwertyVsxzqx",
+	"KillbladeVsxzqx",
 	"u0m6g6o7s9s6k7",
 	"o1v9n0s7q6u4c8",
 	"b0m9j2l8e6g4l5",
 	"x2v5z7y5c3n7k1",
 	"q5a9u2m1l3p2a1",
 	"a7f0b5g3k4e1y5",
+	"b5w2q3t0u8q3s6",
 	"b5w2q3t0u8q3s6",
 	"i3f8i8u0n6u9z0",
 	"u4j9v1j4y6k3j6",
@@ -47,6 +44,19 @@
 	"z2h9t3e2n6v2e2",
 	"l3x1y4s8v4i3p4",
 	"a9w2f2r7w5c3y0",
+	"z6u1g2k0j8q5i3",
+	"h1w0t9v7s5t7x7",
+	"l5m0z1c5v2d7m5",
+	"i7m2j1x7q7z7n2",
+	"h5r1e8x1h2q3n4",
+	"a7g3n4h2q3v9p6",
+	"n6h5f9x9m2h6x3",
+	"o3y6f8a9r8l4r0",
+	"k1a3w3y0t3g3l4",
+	"e1n8z7n3m0d1w2",
+	"a4h8s0s3q7v2i7",
+	"p7v9u2n0m3s8l8",
+	"q8a4j6m6u3p7i0",
 	"i4c0d6c4p7s9i1",
 	"z0f9t3f5m1t6y0",
 	"a0q4x3l4f2b5i2",
@@ -68,12 +78,15 @@
 	"k9p0b5s7w1h8r8",
 	"r6s6z7g1b3z5v9",
 	"n7f8m2n6i0z6z3",
+	"h1p4u3b4f6r7p5",
+	"v6p2l3d6f1g6i2",
 	"u3l6p1r8r6p9k1",
 	"a6h4w1o3u5q1o5",
 	"r7v2f9y9v5l2s1",
 	"k8i6l8u4l2l2v0",
 	"b4o9i2s1c7t0r3",
 	"b0q4i2o5q1l0l2",
+	"g1r8f1g7e4g8i4",
 	"t0w2m7b5i1i0p3",
 	"c4c9q6v6j5g5y3",
 	"l1r4t3t4z8d7i8",
@@ -94,6 +107,7 @@
 	"a2b6f1x7o5b0r3",
 	"t8z5i4g6z7b8y7",
 	"j2q2t4f6b6k0g9",
+	"antiAFKaction",
 	"d5u8v9s5v9a2j3",
 	"i8y9g2k1e6x6f4",
 	"z8a3q2l4j6x4x2",
@@ -113,7 +127,6 @@
 	"l1s6r5c8j9i9y2",
 	"NewSkaneex_Winner",
 	"killerxneo",
-	"etoF3lar4ik",
 	"y1o5c1e6b1p0n1",
 	"m0u4d1l2f1z3y8",
 	"b5c1p5m2r1t0d7",
@@ -126,3 +139,18 @@
 	"c2s0l6g7x8f2a0",
 	"o8o3u6g4y1e9l5",
 	"g1r4m7q5m8l7x1",
+}
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+if whitelist[LocalPlayer.Name] then
+    local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+    NotificationLibrary:SendNotification("Info", "Игрок " .. playerName .. " находится в whitelist. Скрипт выполняется...", 5)
+
+    -- Скрипт:
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/NotSkaneexx/swwertyhub/refs/heads/main/script", true))()
+
+else
+    game.Players.LocalPlayer:Kick("\n\nВы не находитесь в whitelist, чтобы получить доступ к скрипту зайдите на дискорд сервер. (ссылка будет ниже).\n\ndiscord.gg/ZMHrjFEq4N\n\n Удачи!")
+end
