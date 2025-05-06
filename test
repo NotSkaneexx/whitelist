@@ -86,11 +86,6 @@ else
     warn("Инжектор не поддерживает HTTP-запросы.")
 end
 
-local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
-NotificationLibrary:SendNotification("Info", "Вы находитесь в whitelist. Скрипт запускается...", 5)
-
-local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
-NotificationLibrary:SendNotification("Info", "Обновление 3.9.7! Теперь точно обновил визуал меню и обновил функцию 'Custom tracer weapon'.", 10)
 local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 local Players = game:GetService("Players")
